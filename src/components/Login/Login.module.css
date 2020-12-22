@@ -1,0 +1,40 @@
+.info{
+    display: inline-block;
+    margin: 20px 0px 0px 0px;
+}
+
+.loginForm{
+    margin: 20px 0px 0px 0px;
+}
+.loginForm input{
+    display: inline-block;
+    width: 250px;
+    padding: 8px 10px;
+    margin: 6px 0;
+    box-sizing: border-box;
+    border: 1.4px solid black;
+}
+
+.rememberMe {
+    display: flex;
+    align-items: center;
+}
+.rememberMe span {
+    margin: 0px 0px 0px 5px;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgb(48, 48, 48);
+    cursor: default;  
+}
+.btn{
+    background-color: #22a7cc;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    margin: 7px 0px 0px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}

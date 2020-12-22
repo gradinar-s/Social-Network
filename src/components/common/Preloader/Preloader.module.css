@@ -1,0 +1,7 @@
+.preloader{
+    display: flex;
+    justify-content: center;
+}
+.gif{
+    width: 100px;
+}

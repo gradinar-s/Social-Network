@@ -1,0 +1,43 @@
+.dialogs {
+  display: flex;
+  flex: 0 0 100%;
+}
+.dialogItem {
+  flex: 0 0 175px;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10px;
+  border-right: 1px solid rgb(167, 167, 167);
+}
+.senderDialog {
+  padding: 15px 0px;
+  color: black;
+  font-weight: 600;
+}
+.dialogItem .active {
+  background-color: rgb(138, 138, 138);
+}
+.messageItem {
+  max-width: 100%;
+  flex: 1 1 80%;
+  margin: 0px 0px 0px 10px;
+}
+.item {
+  background-color: rgb(60, 102, 219);
+  padding: 5px 5px;
+  margin: 5px 0px;
+}
+.messageWrapper {
+  overflow: auto;
+  max-height: 300px;
+}
+.messageBody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  min-height: 300px;
+}
+.message {
+  color: #fff;
+}

@@ -1,0 +1,19 @@
+.pageNav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 0px 15px 0px;
+}
+.pageNav span {
+    padding: 10px;
+    cursor: pointer;
+}
+.pageNav button {
+    cursor: pointer;
+    width: 45px;
+    height: 30px;
+}
+.pageNavActive{
+    font-weight: 700;
+    font-size: 18px;
+}

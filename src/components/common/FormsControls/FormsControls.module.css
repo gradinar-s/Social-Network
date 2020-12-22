@@ -1,0 +1,42 @@
+.formControl [type=input][type=textarea]{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+.formControl textarea{
+  width: 100%;
+}
+.formControl.error textarea,
+.formControl.error input {
+  border: 1.5px solid rgb(180, 0, 0);
+}
+
+.formControl.error span{
+  background-color: rgb(180, 0, 0);
+  padding: 3px;
+  color: #fff;
+  margin: 0px 0px 0px 5px;
+}
+.formControl{
+  width: 100%;
+}
+.formControl [type=checkbox]{
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+/* generalFormError */
+.generalFormError{
+  padding: 10px;
+  background-color: #22a7cc23;
+  border: 2px solid #22a7cc;
+}
+.errorTitle{
+  font-size: 18px;
+  font-weight: 500;
+}
+.errorDescription{
+  font-size: 14px;
+}
+
