@@ -1,11 +1,10 @@
 import React from "react";
-import { NavLink, withRouter } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import profile from "../../img/icon/profile.png";
 import friends from "../../img/icon/friends.png";
 import settings from "../../img/icon/settings.png";
 import messages from "../../img/icon/messages.png";
-import news from "../../img/icon/news.png";
 import { connect } from "react-redux";
 import { friendsRecomendationsThunk } from "../../redux/usersReducer";
 import photoLarge from "../../img/photo.jpg";
@@ -32,16 +31,12 @@ const Navbar = (props) => {
               }
             >
               {props.friendsRecomendations.map((u) => (
-                <NavLink to={`/profile/${u.id}`}>
+                <NavLink key={u.id} to={`/profile/${u.id}`}>
                   <img title={u.name} src={u.photos.small ? u.photos.small : photoLarge} alt="" />
                 </NavLink>
               ))}
             </div>
             <img className={styles.icon} src={friends} alt="" />
-          </NavLink>
-          <NavLink to="/news">
-            <span className={styles.nameLink}>News</span>{" "}
-            <img className={styles.icon} src={news} alt="" />
           </NavLink>
           <NavLink to="/settings">
             <span className={styles.nameLink}>Settings</span>{" "}

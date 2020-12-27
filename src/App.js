@@ -1,19 +1,21 @@
-import React, { Suspense } from "react";
 import "./App.css";
-import { Route, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import { initializeApp } from "./redux/appReducer";
+
+import React, { Suspense } from "react";
+import { Redirect, Route, withRouter } from "react-router-dom";
 import { compose } from "redux";
+import { connect } from "react-redux";
+
+import { initializeApp } from "./redux/appReducer";
 import NavbarContainer from "./components/Navbar/Navbar";
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Preloader from "./components/common/Preloader/Preloader";
 import Login from "./components/Login/Login";
-// import ProfileContainer from "./components/Profile/ProfileContainer";
+import Settings from "./components/Settings/Settings";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 // import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
-const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"));
 
 class App extends React.Component {
   componentDidMount() {
@@ -29,13 +31,22 @@ class App extends React.Component {
         <div className="wrapper">
           <NavbarContainer />
           <div className="wrapper-content">
+            <Route
+              exact
+              path="/"
+              render={() =>
+                this.props.isAuth ? <Redirect to="/profile" /> : <Redirect to="/login" />
+              }
+            />
             <Suspense fallback={<Preloader />}>
               {/* : указывает что дальше будут параметры */}
               {/* ? указывает что параметр не обязательный */}
               <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
               <Route path="/dialogs" render={() => <DialogsContainer />} />
             </Suspense>
+            {/* <Route exact (что-бы что-то отрисовалось, patch должен совпасть точь в точь) patch='/patch /> */}
             <Route path="/users" render={() => <UsersContainer />} />
+            <Route path="/settings" render={() => <Settings />} />
             <Route path="/login" render={() => <Login />} />
           </div>
         </div>
@@ -46,5 +57,6 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => ({
   initializationSuccess: state.app.initializationSuccess,
+  isAuth: state.auth.isAuth,
 });
 export default compose(withRouter, connect(mapStateToProps, { initializeApp }))(App);

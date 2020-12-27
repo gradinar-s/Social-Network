@@ -13,7 +13,7 @@ const MyPostsForm = (props) => {
   return (
     <form className={styles.myPostForm} onSubmit={props.handleSubmit}>
       <Field component={Textarea} name="newPostMessage" validate={[maxLength_50, minLength_3]} />
-      <button>Send</button> 
+      <button className={styles.btnAddPost}>Send</button>
     </form>
   );
 };

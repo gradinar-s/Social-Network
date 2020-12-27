@@ -2,12 +2,14 @@
   "name": "react-kabzda-1",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gradinar-s.github.io/test-project",
+  "homepage": "https://gradinar-s.github.io/social-network",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
+    "classnames": "^2.2.6",
+    "formik": "^2.2.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-paginate": "^6.5.0",
@@ -19,15 +21,17 @@
     "redux": "^4.0.5",
     "redux-form": "^8.3.7",
     "redux-thunk": "^2.3.0",
-    "reselect": "^4.0.0"
+    "reselect": "^4.0.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

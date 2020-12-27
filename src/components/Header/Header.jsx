@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Header.module.css";
 import { NavLink, Redirect } from "react-router-dom";
-// img
 import searchIcon from "../../img/icon/search.png";
 import socialNetvorkMainLogo from "../../img/socialNetvorkMainLogo.png";
 import photoLarge from "../../img/photo.jpg";
@@ -29,13 +28,15 @@ const Header = (props) => {
             <img src={socialNetvorkMainLogo} alt="" />
           </div>
         </NavLink>
-        <span className={styles.search}>
-          <img src={searchIcon} alt="" />
-        </span>
+        {props.isAuth ? (
+          <span className={styles.search}>
+            <img src={searchIcon} alt="" />
+          </span>
+        ) : null}
         {props.isAuth ? (
           // .menu {display: none} -> md 767
           <div className={styles.menu}>
-            <NavLink to={`/profile/` + props.userId} className={styles.userName}>
+            <NavLink to={`/profile`} className={styles.userName}>
               {props.login}
             </NavLink>
             <div className={styles.avatar}>

@@ -1,0 +1,149 @@
+.wrapperBasicUserInfo{
+    display: flex;
+    justify-content: space-between;
+}
+.userInfo {
+    margin: 0px 0px 0px 15px;
+    width: 100%;
+}
+.userInfo textarea{
+    border: 1px solid black;
+    resize: none;   
+}
+.userName {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1;
+    color: #1a73e8;
+}
+.aboutMe, 
+/* .lookingForAJob, */
+.lookingForAJobDescription,
+.contacts{
+    font-weight: 600;
+    color: #1a73e8;
+    margin: 10px 0px 0px 0px;
+}
+.aboutMeDescription{
+    font-size: 14px;
+    border-left: 1px solid black;
+    
+    margin: 5px 0px 0px 10px;
+    padding: 0px 0px 0px 10px;
+}
+.lookingForAJob{
+    display: inline-block;
+    color: #fff;
+    margin: 15px 0px 0px 0px;
+    font-weight: 500;
+
+    background-color: rgb(0, 156, 8);
+    padding: 7px;
+    border-radius: 5px;
+}
+.noLookingForAJob{
+    display: inline-block;
+    color: #fff;
+    margin: 15px 0px 0px 0px;
+    font-weight: 500;
+    text-decoration: line-through;
+    background-color: rgb(146, 0, 0);
+    padding: 5px;
+    border-radius: 5px;
+}
+.lookingForAJobDescription p {
+    font-size: 14px;
+    color: black;
+    font-weight: 400;
+    border-left: 1px solid black;
+
+    margin: 5px 0px 0px 10px;
+    padding: 0px 0px 0px 10px;
+}
+.wrapperContacts{
+}
+.contacts{
+}
+.contactItem{
+    margin: 5px 0px 0px 0px;
+    font-size: 14px;
+    font-weight: 400;
+}
+.contactItem a{
+}
+/* EDIT MODE */
+.userInfo_mEdit{
+    margin: 0px 0px 0px 15px;
+    width: 100%;
+}
+.userInfo_mEdit textarea{
+    border: 1px solid black;
+    resize: none; 
+}
+.wrapperBasicUserInfo_mEdit{
+    display: flex;
+    justify-content: space-between;
+}
+.generalInfoAboutMe_mEdit{
+
+}
+.aboutMe_mEdit textarea,
+.lookingForAJobDescription_mEdit textarea{
+    font-family: Arial;
+    display: inline-block;
+    max-width: 500px;
+    padding: 8px 5px;
+    margin: 6px 0;
+    font-size: 14px;    
+    box-sizing: border-box;
+    border: 1.4px solid black;
+}
+.userName_mEdit input{
+    display: inline-block;
+    width: 250px;
+    padding: 8px 5px;
+    margin: 6px 0;
+    font-size: 15px;    
+    box-sizing: border-box;
+    border: 1.4px solid black;
+}
+.userName_mEdit,
+.aboutMe_mEdit,
+.lookingForAJob_mEdit,
+.lookingForAJobDescription_mEdit,
+.contacts_mEdit {
+    font-weight: 500;
+    color: #1a73e8;
+}
+.lookingForAJob_mEdit{
+    margin: 5px 0px 10px 0px;
+}
+.contacts_mEdit span{
+    float: right;
+}
+.contactItem_mEdit input{
+    display: inline-block;
+    width: 250px;
+    padding: 8px 5px;
+    margin: 6px 0;
+    font-size: 15px;    
+    box-sizing: border-box;
+    border: 1.4px solid black;
+}
+@media(max-width: 767px){
+    .userInfo,
+    .userInfo_mEdit{
+        margin: 15px 0px 0px 0px;
+    }
+    .generalInfoAboutMe_mEdit{
+        width: 100%;
+    }
+
+}
+@media(max-width: 424px){
+    .aboutMe_mEdit textarea, 
+    .lookingForAJobDescription_mEdit textarea{
+        height: 75px;
+    }
+
+}

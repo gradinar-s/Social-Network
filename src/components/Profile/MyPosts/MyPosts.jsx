@@ -1,7 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
 import { MyPostFormHOC } from "./MyPostForm";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
+import { addPostActionCreator } from "../../../redux/profileReducer";
 
 // React.memo оптимизирует компонент за счёт того что не вызывает метод render() если props НЕ изменились
 // Если изменился useState, то компонент повторно отрендерится
@@ -21,17 +23,22 @@ const MyPosts = React.memo((props) => {
     ));
 
   let newPostMessage = (values) => {
-    props.addPost(values.newPostMessage);
+    props.addPostActionCreator(values.newPostMessage);
   };
 
   return (
     <div className={styles.postsWrapper}>
-      <h2 className={styles.title}>My posts</h2>
+      <div className={styles.title}>
+        {props.isOwner ? (
+          `My posts`
+        ) : (
+          <div>
+            Publication <span>{props.profile.fullName}</span>
+          </div>
+        )}
+      </div>
       <div className={styles.postsTextarea}>
         <div className={styles.wrapperTextarea}>
-          <div className={styles.avatar}>
-            <img src="https://www.imgonline.com.ua/examples/bee-on-daisy.jpg" alt="" />
-          </div>
           <MyPostFormHOC onSubmit={newPostMessage} />
         </div>
       </div>
@@ -40,4 +47,12 @@ const MyPosts = React.memo((props) => {
   );
 });
 
-export default MyPosts;
+let mapStateToProps = (state) => {
+  return {
+    posts: state.profilePage.posts,
+    newPostText: state.profilePage.newPostText,
+    profile: state.profilePage.profile,
+  };
+};
+
+export default connect(mapStateToProps, { addPostActionCreator })(MyPosts);

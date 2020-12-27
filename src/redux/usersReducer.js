@@ -11,7 +11,8 @@ const FRIENDS_RECOMENDATIONS = "users/FRIENDS_RECOMENDATIONS";
 
 let initialState = {
   users: [], // Массив пользователей
-  pageSize: 10, // Кол-во отображаемых пользователей на странице
+  filterUsers: [],
+  pageSize: 100, // Кол-во отображаемых пользователей на странице
   totalUserCount: 0, // Общее кол-во пользователей
   currentPage: 1, // Текущая страница
   isFetching: true, // загрузка проиcходит???
@@ -42,7 +43,7 @@ const usersReducer = (state = initialState, action) => {
         }),
       };
     case SET_USERS:
-      return { ...state, users: action.users };
+      return { ...state, users: action.users.filter((u) => u.status) };
     case SET_CURRENT_PAGE:
       return { ...state, currentPage: action.currentPage };
     case SET_TOTAL_USERS_COUNT:
@@ -85,25 +86,20 @@ export const toggleIsFollowingProgress = (isFetching, userId) => ({
 export const friendsRecomendations = (users) => ({ type: FRIENDS_RECOMENDATIONS, users });
 
 // ==== THUNK =============================================================================
-export const getUsersThunkCreator = (pageSize, pageNumber) => {
-  return (dispatch) => {
-    dispatch(toggleIsFetching(true));
-    userAPI.getUser(pageSize, pageNumber).then((data) => {
-      dispatch(setUsers(data.items));
-      dispatch(toggleIsFetching(false));
-      dispatch(setTotalUserCount(data.totalCount));
-    });
-  };
+export const getUsersThunkCreator = (pageSize, pageNumber) => async (dispatch) => {
+  dispatch(toggleIsFetching(true));
+  const data = await userAPI.getUser(pageSize, pageNumber);
+  dispatch(setUsers(data.items));
+  dispatch(toggleIsFetching(false));
+  dispatch(setTotalUserCount(data.totalCount));
 };
-export const onPageChangedThunkCreator = (pageSize, pageNumber) => {
-  return (dispatch) => {
-    dispatch(setCurrentPage(pageNumber));
-    dispatch(toggleIsFetching(true)); // Показываем крутилку
-    userAPI.getUser(pageSize, pageNumber).then((data) => {
-      dispatch(setUsers(data.items));
-      dispatch(toggleIsFetching(false)); // Прячем крутилку
-    });
-  };
+
+export const onPageChangedThunkCreator = (pageSize, pageNumber) => async (dispatch) => {
+  dispatch(setCurrentPage(pageNumber));
+  dispatch(toggleIsFetching(true));
+  const data = userAPI.getUser(pageSize, pageNumber);
+  dispatch(setUsers(data.items));
+  dispatch(toggleIsFetching(false));
 };
 
 export const followThunkCreator = (id) => {

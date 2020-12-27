@@ -1,106 +1,149 @@
-.content__image {
+.topSectionProfile{
+    display: flex;
+}
+.wrapperMainAvatar {
     position: relative;
-}
-.content__background img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-.content__edit {
-    width: 100px;
-    background-color: #eee;
-    border-radius: 5px;
-    position: absolute;
-    bottom: 13px;
-    right: 10px;
-}
-.content__edit a {
-    display: block;
-    font-size: 18px;
-    color: #000;
-    text-align: center;
-    padding: 10px 0px;
-}
-.content__userPhoto {
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    margin-left: -75px;
-}
-.content__userPhoto img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid white;
-    cursor: pointer;
-}
-.content__editPhoto {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    cursor: pointer;
-}
-.content__editPhoto img {
-    width: 50px;
-    height: 50px;
-    background-color: #eee;
-    padding: 5px;
-}
-.content__background img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-.content__info {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
-.content__name {
+.mainAvatar {
+    width: 230px;
+    height: 275px;
+    object-fit: cover;
+}
+.buttonEditBasicUserInfo{
+    font-size: 15px;
     margin: 10px 0px 0px 0px;
-}
-.content__data {
-    margin: 10px 0px 0px 0px;
-}
-.editStatus{
+    padding: 10px;
+    background-color: #22a7cc;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     cursor: pointer;
 }
-.editStatus img{
+.decision{
+    display: flex;
+}
+.buttonSaveEditBasicUserInfo{
+    font-size: 15px;
+    margin: 10px 5px 0px 0px;
+    padding: 10px;
+    background-color: #22a7cc;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    width: 100%;
+}
+.buttonCancelEditBasicUserInfo{
+    font-size: 15px;
+    margin: 10px 0px 0px 5px;
+    padding: 10px;
+    background-color: #c22f2f;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    width: 100%;
+}
+/* BUTTON EDIT AVATAR */
+.file {
+  display: none;
+}
+.buttonEditMainAvatar label{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 27px;
+  height: 27px;
+  border-radius: 25px;
+  background: #fff;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+}
+.buttonEditMainAvatar label img {
+    width: 17px;
+    height: 17px;
+}
+/* STATUS */
+.wrapperBodyStatus{
+    margin: 5px 0px 0px 0px;
+}
+.textStatus{
+    font-size: 14px;
+    cursor: text;
+    color: #505050;
+}
+.textStatus img{
+    cursor: pointer;
+}
+.wrapperTextStatus{
+    cursor: default;
+}
+.wrapperTextStatus img{
     width: 12px;
     height: 12px;
     margin: 0px 0px 0px 5px;
-}
-.editStatusText{
-    cursor: text;
 }
 .addStatus{
     font-size: 12px;
     font-weight: 500;
     color: rgb(114, 114, 114);
 }
+.errorStatus{
+    background-color: rgb(100, 0, 0);
+    padding: 3px 5px;
+    color: #fff;
+    margin: 0px 0px 0px 10px;
+}
+/*  */
 
 @media(max-width: 767px){
-    .content__background img{
-        height: 200px;
+    .mainAvatar{
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
     }
+    .wrapperMainAvatar {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .topSectionProfile{
+        display: block;
+    }
+    .decision{
+        width: 100%;
+        margin: 0px 0px 0px 15px;
+    }
+    .buttonEditBasicUserInfo{
+        width: 100%;
+        padding: 10px;
+        margin: 0px 0px 0px 15px;
+    }
+    .buttonSaveEditBasicUserInfo{
+        margin: 0px 5px 0px 0px;
+    }
+    .buttonCancelEditBasicUserInfo {
+        margin: 0px 0px 0px 5px;
+    }
+    
 }
 
 @media(max-width: 424px){
-    .content__userPhoto img{
-        width: 120px;
-        height: 120px;
-    }
-    .content__userPhoto{
-            bottom: -10px;
-    left: 50%;
-    margin-left: -60px;
-    }
-    .content__background img{
-        height: 130px;
+    .mainAvatar{
+        width: 100px;
+        height: 100px;
     }
 }
-

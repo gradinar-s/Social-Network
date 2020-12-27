@@ -9,8 +9,8 @@ import { Redirect } from "react-router-dom";
 import stylesForm from "../common/FormsControls/FormsControls.module.css";
 
 const Login = (props) => {
-  const onSubmit = ({ email, password, rememberMe, ...formData }) => {
-    props.login(email, password, rememberMe);
+  const onSubmit = ({ email, password, rememberMe, captcha, ...formData }) => {
+    props.login(email, password, rememberMe, captcha);
   };
   if (props.isAuth) {
     return <Redirect to={"/profile"} />;
@@ -19,18 +19,18 @@ const Login = (props) => {
     <section className={styles.login}>
       <h1>Login</h1>
       <span className={styles.info}>Please log in to the social network</span>
-      <LoginFormContainer onSubmit={onSubmit} />
+      <LoginFormContainer {...props} onSubmit={onSubmit} />
     </section>
   );
 };
 
+const Input = Element("input");
+
 const LoginForm = (props) => {
-  const Input = Element("input");
   return (
     <form onSubmit={props.handleSubmit} className={styles.loginForm}>
       {props.error && (
         <div className={stylesForm.generalFormError}>
-          <span className={stylesForm.errorTitle}>Title</span>
           <p className={stylesForm.errorDescription}>{props.error}</p>
         </div>
       )}
@@ -39,8 +39,16 @@ const LoginForm = (props) => {
         <Field component={Input} name={"password"} type="password" validate={[required]} />
       </div>
       <div className={styles.rememberMe}>
-        <Field component={Input} type={"checkbox"} name={"rememberMe"} />
-        <span>Rememder me</span>
+        <Field component={Input} type={"checkbox"} label="Remember me" name={"rememberMe"} />
+      </div>
+      {props.isCaptcha && (
+        <div className={styles.captcha}>
+          <img src={props.captchaUrl} alt="" />
+          <Field component={Input} name={"captcha"} validate={[required]} />
+        </div>
+      )}
+      <div className={styles.testAccount}>
+        Login and password for full-fledged work with the social network, I will provide personally
       </div>
       <div>
         <button className={styles.btn}>Login</button>
@@ -52,8 +60,11 @@ const LoginForm = (props) => {
 const LoginFormContainer = reduxForm({ form: "login" })(LoginForm);
 
 const mapStateToProps = (state) => {
+  // debugger;
   return {
     isAuth: state.auth.isAuth,
+    isCaptcha: state.auth.isCaptcha,
+    captchaUrl: state.auth.captchaUrl,
   };
 };
 export default connect(mapStateToProps, { login })(Login);

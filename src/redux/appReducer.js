@@ -1,7 +1,6 @@
 import React from "react";
 import { getAuthUserData } from "./authReducer";
 
-// уникализируем types приставкой того с чем работаем - app/
 const INITIALIZATION_SUCCESS = "app/INITIALIZATION_SUCCESS";
 
 let initialState = {

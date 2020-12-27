@@ -20,11 +20,11 @@ const Pagination = (props) => {
         <button onClick={() => setPortionNumber(portionNumber - 1)}>{"❮"}</button>
       )}
       {pages
-        .filter((p) => p >= leftPortionPageNumber && p <= rigthPortionPageNumber)
+        .filter((p) => (p >= leftPortionPageNumber ? p <= rigthPortionPageNumber : ""))
         .map((p) => {
           return (
             <span
-              className={props.currentPage === p && style.pageNavActive}
+              className={props.currentPage === p ? style.pageNavActive : ""}
               onClick={() => props.onPageChanged(p)}
             >
               {p}

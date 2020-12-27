@@ -17,7 +17,8 @@ export const Element = (Element) => {
   return ({ input, meta, ...props }) => {
     const hasError = meta.touched && meta.error;
     return (
-      <div className={styles.formControl + " " + (hasError ? styles.error : +" ")}>
+      <div className={styles.formControl + " " + (hasError ? styles.error : "")}>
+        {props.type === "checkbox" && <label>{props.label}</label>}
         <Element {...input} {...props} />
         {hasError && <span>{meta.error}</span>}
       </div>

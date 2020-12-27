@@ -17,6 +17,7 @@ export const Users = (props) => {
         <User
           user={u}
           key={u.id}
+          isAuth={props.isAuth}
           followingInProgress={props.followingInProgress}
           followThunkCreator={props.followThunkCreator}
           unfollowThunkCreator={props.unfollowThunkCreator}

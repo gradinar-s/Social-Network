@@ -12,36 +12,37 @@
 .postsTextarea {
     margin: 20px 0px 0px 0px;
 }
-.avatar {
-    width: 50px;
-    height: 50px;
-    margin: 0px 15px 0px 0px;
-    flex-shrink: 0;
-}
-.avatar img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-}
 .postsTextarea textarea {
     height: 50px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    border-radius: 25px;
     padding: 7px 15px;
     resize: none;
     background-color: rgb(236, 236, 236);
     line-height: 1.4;
 }
-.postsTextarea button {
-    height: 50px;
-    padding: 0px 15px;
+.btnAddPost{
+    background-color: #22a7cc;
+    border: none;
     color: white;
-    font-weight: 600;
-    margin: 0px 0px 0px 5px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     font-size: 16px;
-    border-radius: 25px;
-    background-color: rgb(146, 146, 146);
     cursor: pointer;
-    border: 1px solid white;
+    margin: 0px 0px 0px 10px;
+}
+.title{
+    cursor: default;
+    font-size: 20px;
+    font-weight: 600;
+
+    margin: 15px 0px 0px 0px;
+}
+.title span{
+    color: rgb(105, 0, 0);
+}
+@media(max-width: 767px){
+
 }

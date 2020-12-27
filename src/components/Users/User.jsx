@@ -2,34 +2,29 @@ import React from "react";
 import styles from "./Users.module.css";
 import photoLarge from "../../img/photo.jpg";
 import { NavLink } from "react-router-dom";
+import ButtonFollowed from "./commonUser/ButtonFollowed";
 
 export const User = (props) => {
   const user = props.user;
   return (
     <div key={user.id} className={styles.item}>
-      <NavLink to={`/profile/${user.id}`} className={styles.avatar}>
-        <img src={user.photos.large != null ? user.photos.large : photoLarge} alt="" />
-      </NavLink>
-      <NavLink to={`/profile/${user.id}`}>
-        <div className={styles.name}>{user.name}</div>
-      </NavLink>
-      <div className={styles.followed}>
-        {user.followed ? (
-          <button
-            // если id (каждый элемент) === id нажатого чувака, то true
-            disabled={props.followingInProgress.some((id) => id === user.id)}
-            onClick={() => props.followThunkCreator(user.id)}
-          >
-            Unfollow
-          </button>
-        ) : (
-          <button
-            disabled={props.followingInProgress.some((id) => id === user.id)}
-            onClick={() => props.unfollowThunkCreator(user.id)}
-          >
-            Follow
-          </button>
-        )}
+      <div className={styles.verticalBlock}>
+        <NavLink to={`/profile/${user.id}`} className={styles.avatar}>
+          <img src={user.photos.large != null ? user.photos.large : photoLarge} alt="" />
+        </NavLink>
+        <ButtonFollowed
+          isAuth={props.isAuth}
+          followingInProgress={props.followingInProgress}
+          followThunkCreator={props.followThunkCreator}
+          unfollowThunkCreator={props.unfollowThunkCreator}
+          user={props.user}
+        />
+      </div>
+      <div className={styles.navItem}>
+        <NavLink to={`/profile/${user.id}`}>
+          <div className={styles.name}>{user.name}</div>
+        </NavLink>
+        <span className={styles.status}>{user.status}</span>
       </div>
     </div>
   );
