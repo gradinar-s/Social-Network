@@ -5,7 +5,6 @@ const Pagination = (props) => {
   const pageCount = Math.ceil(props.totalItemsCount / props.pageSize);
   const pages = [];
 
-  // (текущая страница - 1) * размер страницы + 1
   const portionCount = Math.ceil(pageCount / props.portionSize);
   const [portionNumber, setPortionNumber] = useState(1);
   const leftPortionPageNumber = (portionNumber - 1) * props.portionSize + 1;

@@ -13,7 +13,6 @@ import Preloader from "./components/common/Preloader/Preloader";
 import Login from "./components/Login/Login";
 import Settings from "./components/Settings/Settings";
 import ProfileContainer from "./components/Profile/ProfileContainer";
-// import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
 

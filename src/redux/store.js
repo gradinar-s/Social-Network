@@ -7,15 +7,11 @@ let store = {
   },
 
   getState() {
-    // синтаксис определения метода
-    // обращаемся к свойству, методу через this.
-    // владелец метода. объект где мы сейчас находимся
-
     return this._state;
   },
 
   subscribe(observer) {
-    this._callSubscribes = observer; // паттерн observer
+    this._callSubscribes = observer;
   },
   dispatch(action) {
     this._state.profilePage = profileReducer(this._state.profilePage, action);
