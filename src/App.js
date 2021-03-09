@@ -14,7 +14,9 @@ import Login from "./components/Login/Login";
 import Settings from "./components/Settings/Settings";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 
-const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
+const DialogsContainer = React.lazy(() =>
+  import("./components/Dialogs/DialogsContainer")
+);
 
 class App extends React.Component {
   componentDidMount() {
@@ -34,16 +36,20 @@ class App extends React.Component {
               exact
               path="/"
               render={() =>
-                this.props.isAuth ? <Redirect to="/profile" /> : <Redirect to="/login" />
+                this.props.isAuth ? (
+                  <Redirect to="/profile" />
+                ) : (
+                  <Redirect to="/login" />
+                )
               }
             />
             <Suspense fallback={<Preloader />}>
-              {/* : указывает что дальше будут параметры */}
-              {/* ? указывает что параметр не обязательный */}
-              <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
+              <Route
+                path="/profile/:userId?"
+                render={() => <ProfileContainer />}
+              />
               <Route path="/dialogs" render={() => <DialogsContainer />} />
             </Suspense>
-            {/* <Route exact (что-бы что-то отрисовалось, patch должен совпасть точь в точь) patch='/patch /> */}
             <Route path="/users" render={() => <UsersContainer />} />
             <Route path="/settings" render={() => <Settings />} />
             <Route path="/login" render={() => <Login />} />
@@ -58,4 +64,7 @@ const mapStateToProps = (state) => ({
   initializationSuccess: state.app.initializationSuccess,
   isAuth: state.auth.isAuth,
 });
-export default compose(withRouter, connect(mapStateToProps, { initializeApp }))(App);
+export default compose(
+  withRouter,
+  connect(mapStateToProps, { initializeApp })
+)(App);
