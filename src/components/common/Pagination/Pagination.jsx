@@ -16,13 +16,18 @@ const Pagination = (props) => {
   return (
     <div className={style.pageNav}>
       {portionNumber > 1 && (
-        <button onClick={() => setPortionNumber(portionNumber - 1)}>{"❮"}</button>
+        <button onClick={() => setPortionNumber(portionNumber - 1)}>
+          {"❮"}
+        </button>
       )}
       {pages
-        .filter((p) => (p >= leftPortionPageNumber ? p <= rigthPortionPageNumber : ""))
+        .filter((p) =>
+          p >= leftPortionPageNumber ? p <= rigthPortionPageNumber : ""
+        )
         .map((p) => {
           return (
             <span
+              key={p}
               className={props.currentPage === p ? style.pageNavActive : ""}
               onClick={() => props.onPageChanged(p)}
             >
@@ -31,7 +36,9 @@ const Pagination = (props) => {
           );
         })}
       {portionCount > portionNumber && (
-        <button onClick={() => setPortionNumber(portionNumber + 1)}>{"❯"}</button>
+        <button onClick={() => setPortionNumber(portionNumber + 1)}>
+          {"❯"}
+        </button>
       )}
     </div>
   );

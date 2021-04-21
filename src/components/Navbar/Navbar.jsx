@@ -27,12 +27,18 @@ const Navbar = (props) => {
             <span className={styles.nameLink}>Friends</span>
             <div
               className={
-                props.isAuth ? styles.friendsRecomendations : styles.friendsRecomendationsNone
+                props.isAuth
+                  ? styles.friendsRecomendations
+                  : styles.friendsRecomendationsNone
               }
             >
               {props.friendsRecomendations.map((u) => (
                 <NavLink key={u.id} to={`/profile/${u.id}`}>
-                  <img title={u.name} src={u.photos.small ? u.photos.small : photoLarge} alt="" />
+                  <img
+                    title={u.name}
+                    src={u.photos.small ? u.photos.small : photoLarge}
+                    alt=""
+                  />
                 </NavLink>
               ))}
             </div>
@@ -63,4 +69,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default compose(connect(mapStateToProps, { friendsRecomendationsThunk }))(NavbarContainer);
+export default compose(
+  connect(mapStateToProps, { friendsRecomendationsThunk })
+)(NavbarContainer);

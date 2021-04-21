@@ -33,20 +33,29 @@ const ProfileStatus = (props) => {
         {!editMode && (
           <div className={styles.wrapperTextStatus}>
             <span
-              onClick={props.isAuth && props.isOwner && onEditMode}
+              onClick={props.isAuth && props.isOwner ? onEditMode : undefined}
               className={styles.textStatus}
             >
               {props.status || ""}
-              {(props.isAuth && props.isOwner && !!status && <img src={edit} alt="" />) ||
+              {(props.isAuth && props.isOwner && !!status && (
+                <img src={edit} alt="" />
+              )) ||
                 (props.isOwner && "Добавить статус")}
-              {props.errorStatus && <span className={styles.errorStatus}>{props.errorStatus}</span>}
+              {props.errorStatus && (
+                <span className={styles.errorStatus}>{props.errorStatus}</span>
+              )}
             </span>
           </div>
         )}
       </div>
       {editMode && (
         <div>
-          <input autoFocus onBlur={offEditMode} onChange={onStatusChange} value={status} />
+          <input
+            autoFocus
+            onBlur={offEditMode}
+            onChange={onStatusChange}
+            value={status}
+          />
         </div>
       )}
     </div>

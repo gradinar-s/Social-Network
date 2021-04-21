@@ -4,6 +4,7 @@ import Pagination from "../common/Pagination/Pagination";
 import User from "./User";
 
 export const Users = (props) => {
+  const PORTION_SIZE = 10;
   return (
     <div className={styles.users}>
       <Pagination
@@ -11,7 +12,7 @@ export const Users = (props) => {
         totalItemsCount={props.totalUserCount}
         pageSize={props.pageSize}
         currentPage={props.currentPage}
-        portionSize={10}
+        portionSize={PORTION_SIZE}
       />
       {props.users.map((u) => (
         <User

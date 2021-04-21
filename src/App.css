@@ -1,54 +1,56 @@
-/* ОБНУЛЕНИЕ ================================================================================== */
+/* Null ================================================================================== */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 textarea,
 button {
-    border: none;
-    outline: none;
+  border: none;
+  outline: none;
 }
-button{
-    cursor: pointer;
+button {
+  cursor: pointer;
 }
 ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
-h1, h2, h3, h4, h5, h6{
-    margin: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
 }
 p {
-    margin: 0;
+  margin: 0;
 }
-input{
-    outline: none;
+input {
+  outline: none;
 }
 
-/* ОБЩИЕ СТИЛИ ================================================================================ */
+/* Main styles ============================================================================ */
 .wrapper {
-    display: flex;
-    overflow: hidden;
+  display: flex;
+  overflow: hidden;
 }
 .wrapper-content {
-    padding: 15px;
-    width: 100%;
-    overflow: hidden;
+  padding: 15px;
+  width: 100%;
+  overflow: hidden;
 }
 @media (max-width: 767px) {
-    .wrapper {
-        display: block;
-    }
-    .wrapper-content{
-        margin: 0px 0px 50px 0px;
-    }
+  .wrapper {
+    display: block;
+  }
+  .wrapper-content {
+    margin: 0px 0px 50px 0px;
+  }
 }
-/* ============================================================================================ */
-/* ============================================================================================ */
-/* ============================================================================================ */
 /* ============================================================================================ */
 /* ============================================================================================ */
